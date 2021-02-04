@@ -18,19 +18,54 @@ std::vector<int> MatchVectors(std::vector<int> a, std::vector<int> b);
 
 // divides an input integer by 2 until it is impossible to do so, then returns the final number.
 // (16 = 2 * 2 * 2 * 2 * 1 -> 1, 7 -> 7, 26 = 2 * 13 -> 13, 52 = 2 * 2 * 13 -> 13)
-int RemoveTwos(int original);
+int RemoveTwos(int original) {
+	int numberOfDivisions = 0;
+	int tempInt=original;
+	while (tempInt%2==0) {
+		tempInt = tempInt/2;
+		numberOfDivisions++;
+	}
+	return numberOfDivisions;
+}
 
 // takes a vector of integers and removes all elements evenly divisible by the passed in int
 std::vector<int> MultiplesFilter(std::vector<int>, int divides_by);
 
 // returns a vector with true for even numbers and false for odd numbers
-std::vector<bool> EvenMask(std::vector<int>);
-
+std::vector<bool> EvenMask(std::vector<int> input);
+std::vector<bool> EvenMask(std::vector<int> input) {
+  vector<bool> result;
+  for (int i = 0; i < input.size(); i++) {
+    if (input[i] % 2 == 0) {
+      //evens:
+      result.push_back(true);
+    } else {
+      result.push_back(false);
+    }
+  }
+}
 // returns a vector with true for odd numbers and false for even numbers
-std::vector<bool> OddMask(std::vector<int>);
-
+std::vector<bool> OddMask(std::vector<int> input);
+std::vector<bool> OddMask(std::vector<int> input) {
+  vector<bool> result;
+  for (int i = 0; i < input.size(); i++) {
+    if (input[i] % 2 == 0) {
+      //evens:
+      result.push_back(false);
+    } else {
+      //odds
+      result.push_back(true);
+    }
+  }
+}
 // Sums all numbers in a vector and returns the resulting value
-int Sum(std::vector<int> nums);
+int Sum(std::vector<int> nums) {
+	int sum=0;
+	for(int i : vi) {
+		sum += i;
+	}
+}
+
 
 // Multiplies all numbers in a vector together and returns the resulting value
 int Product(std::vector<int> nums);
@@ -105,7 +140,12 @@ std::vector<double> VectorTimesN(std::vector<double> v, double n);
 std::vector<double> Multiples(double n, double m);
 
 // returns -1 if the number is negative and 1 if positive
-double Sign(double num);
+double Sign(double num) {
+	if (num<0) {
+		return -1
+	}
+	return 1
+}
 
 
 // adds n to each element of the vector
