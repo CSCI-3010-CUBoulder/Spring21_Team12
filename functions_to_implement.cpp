@@ -28,7 +28,7 @@ int RemoveTwos(int original) {
 		tempInt = tempInt/2;
 		numberOfDivisions++;
 	}
-	return numberOfDivisions;
+	return tempInt;
 }
 
 // takes a vector of integers and removes all elements evenly divisible by the passed in int
