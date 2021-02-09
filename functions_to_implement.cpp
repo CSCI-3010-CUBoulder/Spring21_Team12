@@ -1,4 +1,7 @@
 /* String functions section */
+#include <iostream>
+#include <string>
+#include <vector>
 
 // Splits a single string on separator into a vector of strings
 std::vector<std::string> Split(std::string whole, std::string separator);
@@ -34,7 +37,7 @@ std::vector<int> MultiplesFilter(std::vector<int>, int divides_by);
 // returns a vector with true for even numbers and false for odd numbers
 std::vector<bool> EvenMask(std::vector<int> input);
 std::vector<bool> EvenMask(std::vector<int> input) {
-  vector<bool> result;
+  std::vector<bool> result;
   for (int i = 0; i < input.size(); i++) {
     if (input[i] % 2 == 0) {
       //evens:
@@ -47,7 +50,7 @@ std::vector<bool> EvenMask(std::vector<int> input) {
 // returns a vector with true for odd numbers and false for even numbers
 std::vector<bool> OddMask(std::vector<int> input);
 std::vector<bool> OddMask(std::vector<int> input) {
-  vector<bool> result;
+  std::vector<bool> result;
   for (int i = 0; i < input.size(); i++) {
     if (input[i] % 2 == 0) {
       //evens:
@@ -61,7 +64,7 @@ std::vector<bool> OddMask(std::vector<int> input) {
 // Sums all numbers in a vector and returns the resulting value
 int Sum(std::vector<int> nums) {
 	int sum=0;
-	for(int i : vi) {
+	for(int i : nums) {
 		sum += i;
 	}
 }
@@ -130,9 +133,9 @@ std::vector<double> Multiples(double n, double m);
 // returns -1 if the number is negative and 1 if positive
 double Sign(double num) {
 	if (num<0) {
-		return -1
+		return -1;
 	}
-	return 1
+	return 1;
 }
 
 
@@ -147,7 +150,15 @@ std::vector<std::string> AddN(std::vector<std::string>, std::string n);
 
 
 // subtracts n to each element of the vector
-std::vector<int> SubtractN(std::vector<int>, int n);
+std::vector<int> SubtractN(std::vector<int> v, int n){
+  for (int i=0; i< v.size(); i++){
+    v[i]-=n;
+  }
+}
 
 // subtracts n to each element of the vector
-std::vector<double> SubtractN(std::vector<double>, double n);
+std::vector<double> SubtractN(std::vector<double> v, double n){
+  for (int i=0; i< v.size(); i++){
+    v[i]+=n;
+  }
+}
